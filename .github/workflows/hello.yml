@@ -1,5 +1,13 @@
 name: Hello, World!
-on: push
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "!*"
+  pull_request:
+    branches:
+      -main
 
 jobs:
   build:
@@ -8,4 +16,4 @@ jobs:
     container:
       image: node
     steps:
-      - run: node -e 'console.log("Hello, World!");'
+      - run: node -e 'console.log("Hello, World! on main branch");'
